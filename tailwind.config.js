@@ -11,6 +11,13 @@ export default {
         './resources/views/**/*.blade.php',
     ],
 
+    safelist: [
+        { pattern: /bg-(gray|yellow|green)-(50)/ },
+        { pattern: /text-(gray|yellow|green)-(700)/ },
+        { pattern: /ring-(gray|yellow|green)-(600\/20)/ },
+        { pattern: /border-(gray|yellow|green)-(400)/ },
+    ],
+
     theme: {
         extend: {
             fontFamily: {

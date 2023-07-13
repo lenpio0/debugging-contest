@@ -17,7 +17,7 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased" x-data="{ openModale: false }">
         <x-banner />
 
         <div class="min-h-screen bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/1920x1080')">
@@ -25,8 +25,8 @@
 
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <header class="backdrop-blur-md bg-white/60 shadow sticky top-0">
+                    <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8 ">
                         {{ $header }}
                     </div>
                 </header>
