@@ -8,5 +8,6 @@ Vous devez comprendre le code source de l'application, repérer les erreurs, les
 <p>
     <img src="https://badgen.net/badge/PHP/8.2/green" alt="PHP version">
     <img src="https://badgen.net/badge/Laravel/10.x/red" alt="Laravel version">
-    <img src="https://badgen.net/badge/Alpine.js/3.x/blue" alt="Build version">
+    <img src="https://badgen.net/badge/Alpine.js/3.x/blue" alt="Alpine version">
+    <img src="https://badgen.net/badge/Tailwind/3.x/cyan" alt="Tailwind version">
 </p>
