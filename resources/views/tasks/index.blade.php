@@ -9,16 +9,16 @@
         </div>
     </x-slot>
 
-    <div class="py-12">
+    <div class="sm:py-12 py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex gap-4">
-                <div class="basis-1/3">
+            <div class="flex sm:flex-row flex-col sm:gap-4 gap-6">
+                <div class="sm:basis-1/3">
                     @include('_partials.column', ['status' => 'pending', 'color' => 'gray'])
                 </div>
-                <div class="basis-1/3">
+                <div class="sm:basis-1/3">
                     @include('_partials.column', ['status' => 'in_progress', 'color' => 'yellow'])
                 </div>
-                <div class="basis-1/3">
+                <div class="sm:basis-1/3">
                     @include('_partials.column', ['status' => 'completed', 'color' => 'green'])
                 </div>
             </div>
