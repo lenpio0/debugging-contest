@@ -28,7 +28,7 @@
                         <textarea name="description" id="description" cols="30" rows="10" class="block mt-1 w-full border-gray-300 focus:border-teal-500 focus:ring-teal-500 rounded-md shadow-sm">{{ isset($task) ? $task->description : '' }}</textarea>
 
                         <x-label for="end_date" value="{{ __('End Date') }}" class="mt-3" />
-                        <x-input value="{{ isset($task) ? $task->end_date : '' }}" type="date" name="end_date" id="end_date" placeholder="end date" />
+                        <x-input value="{{ isset($task) ? $task->end_date : '' }}" type="date" name="end_date" />
 
                         <x-label for="status" value="{{ __('Status') }}" class="mt-3" />
                         <select name="status" id="status" class="block mt-1 w-full border-gray-300 focus:border-teal-500 focus:ring-teal-500 rounded-md shadow-sm">
@@ -58,7 +58,7 @@
                         </button>
                     </form>
                     @endisset
-                </div>
+
             </div>
 
         </div>

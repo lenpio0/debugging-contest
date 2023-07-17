@@ -12,9 +12,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks_pending = Task::where('status', 'pending')->oldest('end_date')->get();
-        $tasks_completed = Task::where('status', 'completed')->oldest('end_date')->get();
-        $tasks_in_progress = Task::where('status', 'in progress')->oldest('end_date')->get();
+        $tasks_pending = Task::where('status', 'pending')->get();
+        $tasks_completed = Task::where('status', 'completed')->get();
+        $tasks_in_progress = Task::where('status', 'in_progress')->get();
 
         return view('tasks.index', compact('tasks_pending', 'tasks_completed', 'tasks_in_progress'));
     }
@@ -25,7 +25,7 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required',
+            'title' => 'required',
             'description' => 'required',
             'end_date' => 'required',
             'status' => 'required',
@@ -47,7 +47,7 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Task $task)
+    public function update(Request $request)
     {
         $validated = $request->validate([
             'name' => 'required',
@@ -74,16 +74,7 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        $deleted = $task->delete();
-
-        if ($deleted) {
-            session()->flash('flash.banner', 'Task deleted successfully');
-            session()->flash('flash.bannerStyle', 'success');
-        } else {
-            session()->flash('flash.banner', 'Task not deleted');
-            session()->flash('flash.bannerStyle', 'danger');
-        }
-
+        $task->delete();
         return redirect()->back();
     }
 }

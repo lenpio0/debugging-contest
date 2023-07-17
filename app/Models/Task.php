@@ -13,6 +13,5 @@ class Task extends Model
         'name',
         'description',
         'end_date',
-        'status',
     ];
 }

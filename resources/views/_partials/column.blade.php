@@ -22,7 +22,7 @@
 </div>
 
 <!-- adding card -->
-<div @click="openModale = true; status = '{{ Str::replace('_', ' ', $status) }}'" class="sticky top-32 flex flex-row items-center text-gray-900 px-2 backdrop-blur-md bg-white/30 cursor-pointer hover:bg-white/60 transition-all duration-200">
+<div @click="openModale = true; status = '{{ $status }}'" class="sticky top-32 flex flex-row items-center text-gray-900 px-2 backdrop-blur-md bg-white/30 cursor-pointer hover:bg-white/60 transition-all duration-200">
     <p class="rounded mr-2 text-2xl">+</p>
     <p class="pt-1 rounded text-sm">New</p>
 </div>
