@@ -6,6 +6,19 @@
                 {{ __('Tasks') }}
             </h2>
             <x-button @click="openModale = true">add task</x-button>
+
+            {{-- Added buttons that sets the sorting choice, one displaying only when the other option is actually selected --}}
+
+            <?php if ($sort == 'desc'): ?>
+                <a href="{{ route('tasks.index', ['sort' => 'asc']) }}" class="btn btn-primary">Sort by Oldest End Date</a>
+            <?php elseif ($sort == 'asc'): ?>
+                <a href="{{ route('tasks.index', ['sort' => 'desc']) }}" class="btn btn-primary">Sort by Latest End Date</a>
+            <?php endif; ?>
+
+            {{-- Displays the actual sorting --}}
+
+            <p class="capitalize"><?php echo $sort ?>ending</p>
+
         </div>
     </x-slot>
 

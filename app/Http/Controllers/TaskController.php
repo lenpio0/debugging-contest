@@ -10,13 +10,31 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $tasks_pending = Task::where('status', 'pending')->oldest('end_date')->get();
-        $tasks_completed = Task::where('status', 'completed')->oldest('end_date')->get();
-        $tasks_in_progress = Task::where('status', 'in progress')->oldest('end_date')->get();
 
-        return view('tasks.index', compact('tasks_pending', 'tasks_completed', 'tasks_in_progress'));
+    // public function __construct() {
+    //     $sort = session('selected_sorting');
+    // }
+
+    public function index($sort)
+    {
+        // Sorts the tasks depending on the sort variable set by the index buttons
+        
+        if ($sort == 'asc') {
+            $tasks_pending = Task::where('status', 'pending')->oldest('end_date')->get();
+            $tasks_completed = Task::where('status', 'completed')->oldest('end_date')->get();
+            $tasks_in_progress = Task::where('status', 'in progress')->oldest('end_date')->get();
+        }
+        elseif ($sort == 'desc') {
+            $tasks_pending = Task::where('status', 'pending')->latest('end_date')->get();
+            $tasks_completed = Task::where('status', 'completed')->latest('end_date')->get();
+            $tasks_in_progress = Task::where('status', 'in progress')->latest('end_date')->get();
+        }
+
+        // Saving the last sorting option selected in the session
+
+        session(['selected_sorting' => $sort]);
+
+        return view('tasks.index', compact('tasks_pending', 'tasks_completed', 'tasks_in_progress', 'sort'));
     }
 
     /**
